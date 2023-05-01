@@ -8,15 +8,26 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './contents/pages/Home.jsx';
+import Main from './contents/layouts/Main.jsx';
+import NotFound from './contents/pages/NotFound.jsx';
+import Blog from './contents/pages/Blog.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Main />,
     children: [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/*",
+        element: <NotFound />,
       },
     ],
   },
