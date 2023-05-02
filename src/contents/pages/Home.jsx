@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Slider from '../layouts/Slider';
+import Chefs from '../layouts/Chefs';
 
 const Home = () => {
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
 
             <Slider />
+            <Chefs />
 
         </div >
     );
