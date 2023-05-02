@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 
 const Login = () => {
     const [show, setShow] = useState(true);
-    const { loginEmailPassword, user } = useContext(AuthContext);
+    const { loginEmailPassword, user, loginGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,12 +38,24 @@ const Login = () => {
             })
     }
 
+    const LoginGoogleHandler = () => {
+        loginGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div className='container'>
 
 
             <div className="row">
-                <div className="col-md-6 m-auto card p-3 my-4">
+                <div className="col-md-6 m-auto card p-3 my-4 shadow">
                     {
                         location.state && <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                             <Alert.Heading>You have to login must!</Alert.Heading>
@@ -66,6 +80,14 @@ const Login = () => {
                         </Button>
                         <p>New to our restaurant? <Link to="/register">Register</Link></p>
                     </Form>
+                    <div className="d-flex justify-content-around">
+                        <Button variant="danger" onClick={LoginGoogleHandler}>
+                            <FaGoogle /> Login with google
+                        </Button>
+                        <Button variant="dark">
+                            <FaGithub /> Login with github
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

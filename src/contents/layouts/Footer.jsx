@@ -17,29 +17,31 @@ const Footer = () => {
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Links</h5>
                             <ul className="list-unstyled">
-                                <Link>Link 1</Link>
-                                <Link>Link 2</Link>
-                                <Link>Link 3</Link>
-                                <Link>Link 4</Link>
-                                <Link>Link 5</Link>
+                                <li><Link>Link 1</Link></li>
+                                <li><Link>Link 2</Link></li>
+                                <li><Link>Link 3</Link></li>
+                                <li><Link>Link 4</Link></li>
+                                <li><Link>Link 5</Link></li>
+                                <li><Link>Link 6</Link></li>
                             </ul>
                         </div>
 
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Links</h5>
                             <ul className="list-unstyled">
-                                <Link>Link 1</Link>
-                                <Link>Link 2</Link>
-                                <Link>Link 3</Link>
-                                <Link>Link 4</Link>
-                                <Link>Link 5</Link>
+                                <li><Link>Link 1</Link></li>
+                                <li><Link>Link 2</Link></li>
+                                <li><Link>Link 3</Link></li>
+                                <li><Link>Link 4</Link></li>
+                                <li><Link>Link 5</Link></li>
+                                <li><Link>Link 6</Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className="footer-copyright text-center text-light py-3 bg-dark">© 2023 Copyright:
-                    <Link to="https://bhtechit.com/"> Belayet Hossen Biplob</Link>
+                    <Link href="https://bhtechit.com/"> Belayet Hossen Biplob</Link>
                 </div>
 
             </footer>

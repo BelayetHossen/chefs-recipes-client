@@ -25,7 +25,7 @@ const Register = () => {
     return (
         <div className='container'>
             <div className="row">
-                <div className="col-md-6 m-auto card p-3 my-4">
+                <div className="col-md-6 m-auto card p-3 my-4 shadow">
                     <h4 className='p-2 text-center'>Registration form</h4>
                     <Form onSubmit={submitRegister}>
                         <Form.Group className="mb-3" controlId="name">
