@@ -11,7 +11,7 @@ const Chefs = () => {
 
     useEffect(() => {
         async function fetchData() {
-            setLoading(true);
+
             const response = await fetch('http://localhost:5000/chefs');
             const json = await response.json();
             setChefs(json);
@@ -20,17 +20,7 @@ const Chefs = () => {
         fetchData();
     }, []);
 
-    if (loading) {
-        return <div className='col-2 m-auto'>
-            <RotatingLines
-                strokeColor="blue"
-                strokeWidth="5"
-                animationDuration="0.75"
-                width="96"
-                visible={true}
-            />
-        </div>
-    }
+
 
 
     return (
@@ -47,7 +37,7 @@ const Chefs = () => {
                                 <Card.Footer className='d-flex justify-content-between align-items-center'>
                                     <FaBookmark className='text-warning' />
 
-                                    <Link className='btn btn-info btn-sm'>See details</Link>
+                                    <Link to={`/chef/${chef.id}`} className='btn btn-info btn-sm'>See details</Link>
                                 </Card.Footer>
                             </Card>
                         </div>

@@ -15,6 +15,8 @@ import Login from './contents/pages/Login.jsx';
 import Register from './contents/pages/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import PrivateRoute from './routes/PrivateRoutes.jsx';
+import Details from './contents/pages/Details.jsx';
+import singleChefLoader from './loader/singleChefLoader.js';
 
 const router = createBrowserRouter([
   {
@@ -38,8 +40,9 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/about",
-        element: <PrivateRoute> <div>About</div> </PrivateRoute>,
+        path: "/chef/:id",
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: singleChefLoader,
       },
       {
         path: "/*",
