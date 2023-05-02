@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(result => { })
+            .catch(error => console.error(error));
+    }
 
     return (
         <div>
@@ -42,7 +48,7 @@ const Header = () => {
 
 
 
-                            <Link to='/login' className='nav-item nav-link btn btn-primary px-3 py-1 text-white ms-2'>Logout</Link>
+                            <Link onClick={handleLogout} className='nav-item nav-link btn btn-primary px-3 py-1 text-white ms-2'>Logout</Link>
                         </span>
                             :
                             <Link to='/login' className='nav-item nav-link btn btn-primary px-3 py-1 text-white ms-2'>Login</Link>

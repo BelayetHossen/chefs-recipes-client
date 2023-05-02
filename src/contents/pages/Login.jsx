@@ -1,10 +1,20 @@
-import React, { useContext } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Alert, Button, Form } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { loginEmailPassword } = useContext(AuthContext);
+    const [show, setShow] = useState(true);
+    const { loginEmailPassword, user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    if (!user) {
+        console.log("hhhhhhhh");
+    }
+
 
     const loginEmailPass = event => {
         event.preventDefault();
@@ -25,10 +35,20 @@ const Login = () => {
                 console.log(error);
             })
     }
+
     return (
         <div className='container'>
+
+
             <div className="row">
                 <div className="col-md-6 m-auto card p-3 my-4">
+                    {
+                        location.state && <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                            <Alert.Heading>You have to login must!</Alert.Heading>
+                        </Alert>
+
+                    }
+
                     <h4 className='p-2 text-center'>Login form</h4>
                     <Form onSubmit={loginEmailPass}>
                         <Form.Group className="mb-3" controlId="email">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -16,27 +17,29 @@ const Footer = () => {
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Links</h5>
                             <ul className="list-unstyled">
-                                <li><a href="#!">Link 1</a></li>
-                                <li><a href="#!">Link 2</a></li>
-                                <li><a href="#!">Link 3</a></li>
-                                <li><a href="#!">Link 4</a></li>
+                                <Link>Link 1</Link>
+                                <Link>Link 2</Link>
+                                <Link>Link 3</Link>
+                                <Link>Link 4</Link>
+                                <Link>Link 5</Link>
                             </ul>
                         </div>
 
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Links</h5>
                             <ul className="list-unstyled">
-                                <li><a href="#!">Link 1</a></li>
-                                <li><a href="#!">Link 2</a></li>
-                                <li><a href="#!">Link 3</a></li>
-                                <li><a href="#!">Link 4</a></li>
+                                <Link>Link 1</Link>
+                                <Link>Link 2</Link>
+                                <Link>Link 3</Link>
+                                <Link>Link 4</Link>
+                                <Link>Link 5</Link>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className="footer-copyright text-center text-light py-3 bg-dark">© 2023 Copyright:
-                    <a href="https://bhtechit.com/"> Belayet Hossen Biplob</a>
+                    <Link to="https://bhtechit.com/"> Belayet Hossen Biplob</Link>
                 </div>
 
             </footer>
