@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const Details = () => {
@@ -25,6 +25,8 @@ const Details = () => {
                         <li>Number of recipes : {chef.item_number}</li>
                         <li>Exparience : {chef.experience}</li>
                     </ul>
+
+                    <Link to={`/chef/recipes/${chef.id}`} className='btn btn-primary'>View recipes</Link>
 
                 </div>
             </div>
