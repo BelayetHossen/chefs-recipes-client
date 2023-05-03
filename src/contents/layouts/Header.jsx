@@ -36,7 +36,7 @@ const Header = () => {
 
                     {
                         user ? <span className="d-flex align-items-center">
-                            <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">Tooltip!</Tooltip>}>
+                            <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">{user?.displayName}</Tooltip>}>
                                 <span className="d-inline-block">
                                     <Image className='bs-tooltip-left' onMouseEnter={() => setShow(!show)}
                                         x-placement="left"

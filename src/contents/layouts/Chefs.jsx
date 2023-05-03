@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import { FaBookmark } from "@react-icons/all-files/fa/FaBookmark";
@@ -35,7 +35,7 @@ const Chefs = () => {
                                     <Card.Title>{chef.name}</Card.Title>
                                 </Card.Body>
                                 <Card.Footer className='d-flex justify-content-between align-items-center'>
-                                    <FaBookmark className='text-warning' />
+                                    <Button disabled="false" className='bg-light'><FaBookmark className='text-warning' cursor="pointer" /></Button>
 
                                     <Link to={`/chef/${chef.id}`} className='btn btn-info btn-sm'>See details</Link>
                                 </Card.Footer>

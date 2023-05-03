@@ -4,16 +4,19 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { userNamePhoto, createUser } = useContext(AuthContext);
     const submitRegister = (e) => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, photo);
         createUser(email, password)
             .then(result => {
                 const registeredUser = result.user;
-                console.log(registeredUser)
+                update(registeredUser, name, photo);
                 form.reset();
                 // navigate(from, { replace: true })
             })
@@ -22,6 +25,17 @@ const Register = () => {
             })
 
     }
+
+    const update = (registeredUser, name, photo) => {
+        userNamePhoto(registeredUser, name, photo)
+            .then(() => {
+                alert('updated');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div className='container'>
             <div className="row">
