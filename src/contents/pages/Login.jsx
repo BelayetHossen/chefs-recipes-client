@@ -6,8 +6,8 @@ import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 
 const Login = () => {
-    const [show, setShow] = useState(true);
-    const { loginEmailPassword, user, loginGoogle, loginGithub } = useContext(AuthContext);
+    const { loginEmailPassword, loginGoogle, loginGithub } = useContext(AuthContext);
+    const [warning, setWarning] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -20,17 +20,19 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+
 
         loginEmailPassword(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 form.reset();
+                setWarning('');
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setWarning(error.message);
+
             })
     }
 
@@ -49,7 +51,6 @@ const Login = () => {
     const LoginGihubHandler = () => {
         loginGithub()
             .then(result => {
-                const loggedUser = result.user;
 
                 navigate(from, { replace: true })
             })
@@ -67,6 +68,12 @@ const Login = () => {
                     {
                         location.state && <Alert variant="danger" dismissible>
                             <Alert.Heading>You have to login must!</Alert.Heading>
+                        </Alert>
+
+                    }
+                    {
+                        warning && <Alert variant="danger" dismissible>
+                            <Alert.Heading>{warning}</Alert.Heading>
                         </Alert>
 
                     }

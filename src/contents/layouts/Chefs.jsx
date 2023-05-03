@@ -1,13 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { AuthContext } from '../../providers/AuthProvider';
+import React, { useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaBookmark } from "@react-icons/all-files/fa/FaBookmark";
-import { RotatingLines } from 'react-loader-spinner';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Chefs = () => {
-    const { setLoading, loading } = useContext(AuthContext);
+
     const [chefs, setChefs] = useState([]);
+
+    const handleClick = event => {
+        event.target.setAttribute('disabled', 'true');
+        toast.success("Added to bookmark successfully!")
+    };
+
 
     useEffect(() => {
         async function fetchData() {
@@ -21,11 +27,15 @@ const Chefs = () => {
     }, []);
 
 
-
+    // add() {
+    //     this.props.onButtonClick(this.input.value);
+    //     this.input.value = '';
+    // }
 
     return (
         <div className='container my-5'>
             <div className="row">
+                <ToastContainer />
                 {
                     chefs.map(chef =>
                         <div key={chef.id} className="col-md-3 mb-4">
@@ -35,7 +45,12 @@ const Chefs = () => {
                                     <Card.Title>{chef.name}</Card.Title>
                                 </Card.Body>
                                 <Card.Footer className='d-flex justify-content-between align-items-center'>
-                                    <Button disabled="false" className='bg-light'><FaBookmark className='text-warning' cursor="pointer" /></Button>
+
+
+                                    <button className='btn btn-sm' onClick={handleClick}>Add
+                                        <FaBookmark className='text-warning' />
+                                    </button>
+
 
                                     <Link to={`/chef/${chef.id}`} className='btn btn-info btn-sm'>See details</Link>
                                 </Card.Footer>
