@@ -1,3 +1,5 @@
-- Item 1
-- Item 2
-- Item 3
+- Email password login, google login, github login with firebase
+- full authentication with private route
+- view all chefs data with recipes
+
+Live link: https://assignment-10-4a82e.web.app/

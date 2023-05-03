@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { Button, Image, Nav, NavLink, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import LazyLoad from 'react-lazy-load';
 
 const Header = () => {
     const { auth, user, logOut } = useContext(AuthContext);
@@ -28,9 +29,10 @@ const Header = () => {
             <header className="top-navbar container d-flex justify-content-between align-items-center">
 
                 <Navbar expand="md">
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="#home"></Navbar.Brand>
+                    <Navbar.Brand>
                         <Link className="navbar-brand" to="/">
-                            <img src="../../../public/assets/images/logo.png" alt="" />
+                            Restaurant
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -69,10 +71,10 @@ const Header = () => {
 
 
                 </div>
-            </header>
+            </header >
 
 
-        </div>
+        </div >
     );
 };
 
