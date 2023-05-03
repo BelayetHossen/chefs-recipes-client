@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaBookmark } from "@react-icons/all-files/fa/FaBookmark";
 import { ToastContainer, toast } from 'react-toastify';
+import LazyLoad from 'react-lazy-load';
 
 
 const Chefs = () => {
@@ -40,7 +41,9 @@ const Chefs = () => {
                     chefs.map(chef =>
                         <div key={chef.id} className="col-md-3 mb-4">
                             <Card>
-                                <Card.Img variant="top" src={chef.photo} loading="lazy" />
+                                <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
+                                    <Card.Img variant="top" src={chef.photo} />
+                                </LazyLoad>
                                 <Card.Body>
                                     <Card.Title>{chef.name}</Card.Title>
                                 </Card.Body>

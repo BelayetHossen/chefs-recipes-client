@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link, useLoaderData } from 'react-router-dom';
 
 
@@ -16,7 +17,9 @@ const Details = () => {
             <div className="row w-75 m-auto">
                 <h4 className='text-center py-2 mb-3'>Single chef details</h4>
                 <div className="col-md-6">
-                    <img loading="lazy" width="100%" src={chef.photo} alt="" />
+                    <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
+                        <img width="100%" src={chef.photo} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col-md-6">
                     <ul>

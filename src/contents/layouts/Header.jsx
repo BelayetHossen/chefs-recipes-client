@@ -1,10 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Image, Nav, NavLink, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
     const { auth, user, logOut } = useContext(AuthContext);
+    const location = useLocation();
+    const pathName = location.pathname;
+    // setActive(pathName);
+    // let id = chefId[2];
+    // const activate = (isActive, path, activeStyle, nonActiveStyle) => {
+    //     if (isActive) {
+    //         setActive(path)
+    //         return activeStyle
+    //     }
+    //     return nonActiveStyle
+    // }
 
     const handleLogout = () => {
         logOut()
@@ -25,9 +36,10 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className='float-end'>
                         <Nav className="me-auto">
-                            <Link to='/' className='nav-item nav-link'>Home</Link>
-                            <Link to='/hkfjgigr' className='nav-item nav-link'>Not found page</Link>
-                            <Link to='/blog' className='nav-item nav-link'>Blog</Link>
+                            <Link to='/' className={`nav-item nav-link ${pathName == '/' ? 'active' : ''}`}>Home</Link>
+                            <Link to='/hkfjgigr' className={`nav-item nav-link ${pathName == '/hkfjgigr' ? 'active' : ''}`}>Not found page</Link>
+                            <Link to='/blog' className={`nav-item nav-link ${pathName == '/blog' ? 'active' : ''}`}>Blog</Link>
+
 
                         </Nav>
                     </Navbar.Collapse>

@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import { useLoaderData } from 'react-router-dom';
 
 const Recipes = () => {
@@ -19,7 +20,10 @@ const Recipes = () => {
                     <div key={recipe.name} className="card my-5 p-4 shadow">
                         <div className="row ">
                             <div className="col-md-6">
-                                <img className='mt-2' src={recipe.photo} alt="" width="100%" loading="lazy" />
+                                <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
+                                    <img className='mt-2' src={recipe.photo} alt="" width="100%" />
+                                </LazyLoad>
+
                             </div>
                             <div className="col-md-6">
                                 <h4>Recipes name: {recipe.name}</h4>
