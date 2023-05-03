@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
-
+    const { auth, user, logOut } = useContext(AuthContext);
+    console.log(auth.currentUser?.photoURL)
     const handleLogout = () => {
         logOut()
             .then(result => { })
@@ -35,13 +35,14 @@ const Header = () => {
                 <div className="right-icon">
 
                     {
+
                         user ? <span className="d-flex align-items-center">
                             <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">{user?.displayName}</Tooltip>}>
                                 <span className="d-inline-block">
                                     <Image className='bs-tooltip-left' onMouseEnter={() => setShow(!show)}
                                         x-placement="left"
                                         roundedCircle width='40px'
-                                        src="../../../public/assets/images/avt-img.jpg"
+                                        src={auth.currentUser?.photoURL}
                                     />
                                 </span>
                             </OverlayTrigger>

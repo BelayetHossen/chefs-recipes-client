@@ -9,14 +9,14 @@ const Recipes = () => {
     let filter = chefs.filter(item => item.id == id);
     let chef = filter[0];
     let recipes = chef.items;
-    console.log(recipes);
+
     return (
         <div className='container my-3'>
 
             <h4 className='text-center py-2 mb-3'>Recipes details</h4>
             {
                 recipes.map(recipe =>
-                    <div className="card my-5 p-4 shadow">
+                    <div key={recipe.name} className="card my-5 p-4 shadow">
                         <div className="row ">
                             <div className="col-md-6">
                                 <img className='mt-2' src={recipe.photo} alt="" width="100%" />
@@ -25,7 +25,7 @@ const Recipes = () => {
                                 <h4>Recipes name: {recipe.name}</h4>
                                 <h5>Ingredients:</h5>
                                 {
-                                    recipe.ingredients.map(item => <li>{item}</li>)
+                                    recipe.ingredients.map(item => <li key={item}>{item}</li>)
                                 }
 
                             </div>
