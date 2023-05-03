@@ -7,15 +7,11 @@ import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 
 const Login = () => {
     const [show, setShow] = useState(true);
-    const { loginEmailPassword, user, loginGoogle } = useContext(AuthContext);
+    const { loginEmailPassword, user, loginGoogle, loginGithub } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-
-    if (!user) {
-        console.log("hhhhhhhh");
-    }
 
 
     const loginEmailPass = event => {
@@ -50,6 +46,18 @@ const Login = () => {
             })
     }
 
+    const LoginGihubHandler = () => {
+        loginGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div className='container'>
 
@@ -57,7 +65,7 @@ const Login = () => {
             <div className="row">
                 <div className="col-md-6 m-auto card p-3 my-4 shadow">
                     {
-                        location.state && <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                        location.state && <Alert variant="danger" dismissible>
                             <Alert.Heading>You have to login must!</Alert.Heading>
                         </Alert>
 
@@ -84,7 +92,7 @@ const Login = () => {
                         <Button variant="danger" onClick={LoginGoogleHandler}>
                             <FaGoogle /> Login with google
                         </Button>
-                        <Button variant="dark">
+                        <Button variant="dark" onClick={LoginGihubHandler}>
                             <FaGithub /> Login with github
                         </Button>
                     </div>

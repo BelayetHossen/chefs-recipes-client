@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
     const { auth, user, logOut } = useContext(AuthContext);
-    console.log(auth.currentUser?.photoURL)
+    console.log(auth.currentUser)
     const handleLogout = () => {
         logOut()
             .then(result => { })
@@ -37,12 +37,12 @@ const Header = () => {
                     {
 
                         user ? <span className="d-flex align-items-center">
-                            <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">{user?.displayName}</Tooltip>}>
+                            <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">{auth.currentUser?.displayName}</Tooltip>}>
                                 <span className="d-inline-block">
                                     <Image className='bs-tooltip-left' onMouseEnter={() => setShow(!show)}
                                         x-placement="left"
                                         roundedCircle width='40px'
-                                        src={auth.currentUser?.photoURL}
+                                        src={auth?.currentUser?.photoURL}
                                     />
                                 </span>
                             </OverlayTrigger>
