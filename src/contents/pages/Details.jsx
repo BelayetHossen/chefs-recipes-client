@@ -16,7 +16,7 @@ const Details = () => {
             <div className="row w-75 m-auto">
                 <h4 className='text-center py-2 mb-3'>Single chef details</h4>
                 <div className="col-md-6">
-                    <img width="100%" src={chef.photo} alt="" />
+                    <img loading="lazy" width="100%" src={chef.photo} alt="" />
                 </div>
                 <div className="col-md-6">
                     <ul>

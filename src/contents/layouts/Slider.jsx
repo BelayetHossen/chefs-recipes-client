@@ -7,6 +7,7 @@ const Slider = () => {
             <Carousel className='slider'>
                 <Carousel.Item>
                     <img
+                        loading="lazy"
                         className="d-block w-100"
                         src="../../../public/assets/images/slider-01.jpg"
                         alt="First slide"
@@ -18,6 +19,7 @@ const Slider = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
+                        loading="lazy"
                         className="d-block w-100"
                         src="../../../public/assets/images/slider-02.jpg"
                         alt="Second slide"
@@ -30,6 +32,7 @@ const Slider = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
+                        loading="lazy"
                         className="d-block w-100"
                         src="../../../public/assets/images/slider-03.jpg"
                         alt="Third slide"

@@ -40,7 +40,7 @@ const Chefs = () => {
                     chefs.map(chef =>
                         <div key={chef.id} className="col-md-3 mb-4">
                             <Card>
-                                <Card.Img variant="top" src={chef.photo} />
+                                <Card.Img variant="top" src={chef.photo} loading="lazy" />
                                 <Card.Body>
                                     <Card.Title>{chef.name}</Card.Title>
                                 </Card.Body>
