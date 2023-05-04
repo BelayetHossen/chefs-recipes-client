@@ -28,15 +28,11 @@ const Chefs = () => {
     }, []);
 
 
-    // add() {
-    //     this.props.onButtonClick(this.input.value);
-    //     this.input.value = '';
-    // }
-
     return (
         <div className='container my-5'>
             <div className="row">
                 <ToastContainer />
+                <h4 className='text-center py-3'>OUR ALL CHEFS</h4>
                 {
                     chefs.map(chef =>
                         <div key={chef.id} className="col-md-3 mb-4">
