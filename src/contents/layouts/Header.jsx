@@ -2,21 +2,13 @@ import React, { useContext } from 'react';
 import { Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import LazyLoad from 'react-lazy-load';
+
 
 const Header = () => {
     const { auth, user, logOut } = useContext(AuthContext);
     const location = useLocation();
     const pathName = location.pathname;
-    // setActive(pathName);
-    // let id = chefId[2];
-    // const activate = (isActive, path, activeStyle, nonActiveStyle) => {
-    //     if (isActive) {
-    //         setActive(path)
-    //         return activeStyle
-    //     }
-    //     return nonActiveStyle
-    // }
+
 
     const handleLogout = () => {
         logOut()
@@ -53,7 +45,7 @@ const Header = () => {
                         user ? <span className="d-flex align-items-center">
                             <OverlayTrigger placement="left" overlay={<Tooltip id="tooltip-disabled">{auth.currentUser?.displayName}</Tooltip>}>
                                 <span className="d-inline-block">
-                                    <Image className='bs-tooltip-left' onMouseEnter={() => setShow(!show)}
+                                    <Image className='bs-tooltip-left'
                                         x-placement="left"
                                         roundedCircle width='40px'
                                         src={auth?.currentUser?.photoURL}
